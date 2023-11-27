@@ -247,13 +247,13 @@ if __name__ == "__main__":
     print "%s │ Check out the mirror repo: https://xtream-ui.org %s" % (col.OKGREEN, col.ENDC)
     print "%s │ and https://github.com/xtream-ui-org/xtream-ui-install %s" % (col.OKGREEN, col.ENDC)
     print " "
-    rType = raw_input("  Installation Type [MAIN, LB, UPDATE]: ")
+    rType = "LB"
     print " "
     if rType.upper() in ["MAIN", "LB"]:
         if rType.upper() == "LB":
-            rHost = raw_input("  Main Server IP Address: ")
-            rPassword = raw_input("  MySQL Password: ")
-            try: rServerID = int(raw_input("  Load Balancer Server ID: "))
+            rHost = "my_mysql"
+            rPassword = "xtream3o16"
+            try: rServerID = 1
             except: rServerID = -1
             print " "
         else:
