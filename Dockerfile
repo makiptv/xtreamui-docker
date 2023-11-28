@@ -6,7 +6,6 @@ RUN apt-get update && apt-get upgrade -y
 
 # Install necessary packages
 RUN apt-get install libxslt1-dev libcurl4 libgeoip-dev python wget -y;
-RUN 2
 # Download Xtream UI installation script
 WORKDIR /tmp
 RUN wget https://github.com/xtream-ui-org/xtream-ui-install/raw/master/install.py;
