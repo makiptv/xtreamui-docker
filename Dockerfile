@@ -1,6 +1,7 @@
 # Use Ubuntu 18.04 as base image
 FROM ubuntu:18.04
 
+COPY install.py /tmp/install.py
 # Update the system
 RUN apt-get update && apt-get upgrade -y
 
@@ -8,7 +9,6 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install libxslt1-dev libcurl4 libgeoip-dev python wget -y;
 # Download Xtream UI installation script
 WORKDIR /tmp
-RUN wget https://github.com/xtream-ui-org/xtream-ui-install/raw/master/install.py;
 
 # Make the script executable
 RUN chmod 755 install.py

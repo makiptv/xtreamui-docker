@@ -244,11 +244,12 @@ def modifyNginx():
         rFile.close()
 
 if __name__ == "__main__":
-    printc("Xtream UI - Installer Mirror", col.OKGREEN, 2)
+    printc("Xtream UI - 31k5 Installer Mirror", col.OKGREEN, 2)
     print "%s │ NOTE: this is a forked mirror of original installer from https://xtream-ui.com/install/install.py %s" % (col.OKGREEN, col.ENDC)
     print "%s │ Check out the mirror repo: https://xtream-ui.org %s" % (col.OKGREEN, col.ENDC)
     print "%s │ and https://github.com/xtream-ui-org/xtream-ui-install %s" % (col.OKGREEN, col.ENDC)
     rType = "lb"
+    print( " ")
     if rType.upper() in ["MAIN", "LB"]:
         if rType.upper() == "LB":
             rHost = "my_mysql"
@@ -265,7 +266,7 @@ if __name__ == "__main__":
         rPort = 7999
         if len(rHost) > 0 and len(rPassword) > 0 and rServerID > -1:
             printc("Start installation? Y/N", col.WARNING)
-            if raw_input("  ").upper() == "Y":
+            if  True:
                 print " "
                 rRet = prepare(rType.upper())
                 if not install(rType.upper()): sys.exit(1)
