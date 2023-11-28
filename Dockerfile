@@ -1,5 +1,5 @@
 # Use Ubuntu 18.04 as base image
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 # Update the system
 RUN apt-get update && apt-get upgrade -y
