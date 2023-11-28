@@ -248,9 +248,7 @@ if __name__ == "__main__":
     print "%s │ NOTE: this is a forked mirror of original installer from https://xtream-ui.com/install/install.py %s" % (col.OKGREEN, col.ENDC)
     print "%s │ Check out the mirror repo: https://xtream-ui.org %s" % (col.OKGREEN, col.ENDC)
     print "%s │ and https://github.com/xtream-ui-org/xtream-ui-install %s" % (col.OKGREEN, col.ENDC)
-    print " "
-    rType = "LB"
-    print " "
+    rType = "lb"
     if rType.upper() in ["MAIN", "LB"]:
         if rType.upper() == "LB":
             rHost = "my_mysql"
