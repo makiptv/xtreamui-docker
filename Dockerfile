@@ -1,15 +1,16 @@
 # Use Ubuntu 18.04 as base image
 FROM ubuntu:18.04
 
-COPY install.py /tmp/install.py
+COPY install.py ./install.py
 # Update the system
 RUN apt-get update && apt-get upgrade -y
 
 # Install necessary packages
 RUN apt-get install libxslt1-dev libcurl4 libgeoip-dev python wget -y;
-# Download Xtream UI installation script
-WORKDIR /tmp
 
+RUN mkdir /home/xtreamcodes
+RUN mkdir /home/xtreamcodes/iptv_xtream_codes
+RUN mkdir /home/xtreamcodes/ptv_xtream_codes/config
 # Make the script executable
 RUN chmod 755 install.py
 
