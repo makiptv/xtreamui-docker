@@ -15,3 +15,5 @@ RUN chmod 755 install.py
 
 # Install Xtream UI (You may need to customize this command according to your needs)
 RUN python install.py
+
+CMD ["sleep", "infinity"]
