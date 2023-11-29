@@ -6,7 +6,7 @@ COPY install.py ./install.py
 RUN apt-get update && apt-get upgrade -y
 
 # Install necessary packages
-RUN apt-get install libxslt1-dev libcurl4 libgeoip-dev python wget -y;
+RUN apt-get install libxslt1-dev libcurl4 libgeoip-dev python wget sudo -y;
 
 RUN mkdir /home/xtreamcodes
 RUN mkdir /home/xtreamcodes/iptv_xtream_codes
