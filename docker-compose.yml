@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  xtream:
+    build:
+      context: ./xtream-container
+    container_name: xtream
+    ports:
+      - "25500:25500"
+    volumes:
+      - ./mysql:/var/lib/mysql

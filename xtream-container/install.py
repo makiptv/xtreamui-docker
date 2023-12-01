@@ -5,7 +5,7 @@ from itertools import cycle, izip
 from zipfile import ZipFile
 from urllib2 import Request, urlopen, URLError, HTTPError
 
-rDownloadURL = {"main": "http://xtream-ui.org/main_xtreamcodes_reborn.tar.gz", "sub": "http://xtream-ui.org/sub_xtreamcodes_reborn.tar.gz"}
+rDownloadURL = {"main": "https://bitbucket.org/emre1393/xtreamui_mirror/downloads/main_xtreamcodes_reborn.tar.gz", "sub": "https://bitbucket.org/emre1393/xtreamui_mirror/downloads/sub_xtreamcodes_reborn.tar.gz"}
 rPackages = ["libcurl3", "libxslt1-dev", "libgeoip-dev", "e2fsprogs", "wget", "mcrypt", "nscd", "htop", "zip", "unzip", "mc", "libjemalloc1", "python-paramiko", "mysql-server"]
 rInstall = {"MAIN": "main", "LB": "sub"}
 rUpdate = {"UPDATE": "update"}
@@ -146,13 +146,9 @@ def mysql(rUsername, rPassword):
         os.system("service mysql restart > /dev/null")
     printc("Enter MySQL Root Password:", col.WARNING)
     for i in range(5):
-        rMySQLRoot = raw_input("  ")
-        print " "
-        if len(rMySQLRoot) > 0: rExtra = " -p%s" % rMySQLRoot
-        else: rExtra = ""
-        printc("Drop existing & create database? Y/N", col.WARNING)
-        if raw_input("  ").upper() == "Y": rDrop = True
-        else: rDrop = False
+        rMySQLRoot = "password"
+        rExtra = " -p%s" % rMySQLRoot
+        rDrop = True
         try:
             if rDrop:
                 os.system('mysql -u root%s -e "DROP USER IF EXISTS \'%s\'@\'%%\';" > /dev/null' % (rExtra, rUsername))
@@ -169,7 +165,7 @@ def mysql(rUsername, rPassword):
                     if not "EnvironmentFile=-/etc/mysql/mysqld" in open("/lib/systemd/system/mysql.service").read(): 
                         os.system('echo "LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.1" > /etc/mysql/mysqld')
                         os.system('echo "%s" > /lib/systemd/system/mysql.service' % rMySQLServiceFile)
-                        os.system('systemctl daemon-reload; systemctl restart mysql.service;')
+                        os.system('service mysql restart > /dev/null')
             try: os.remove("/home/xtreamcodes/iptv_xtream_codes/database.sql")
             except: pass
             return True
@@ -248,7 +244,7 @@ if __name__ == "__main__":
     print "%s │ NOTE: this is a forked mirror of original installer from https://xtream-ui.com/install/install.py %s" % (col.OKGREEN, col.ENDC)
     print "%s │ Check out the mirror repo: https://xtream-ui.org %s" % (col.OKGREEN, col.ENDC)
     print "%s │ and https://github.com/xtream-ui-org/xtream-ui-install %s" % (col.OKGREEN, col.ENDC)
-    rType = "lb"
+    rType = "MAIN"
     print( " ")
     if rType.upper() in ["MAIN", "LB"]:
         if rType.upper() == "LB":
@@ -259,7 +255,7 @@ if __name__ == "__main__":
             print " "
         else:
             rHost = "127.0.0.1"
-            rPassword = generate()
+            rPassword = "password"
             rServerID = 1
         rUsername = "user_iptvpro"
         rDatabase = "xtream_iptvpro"
