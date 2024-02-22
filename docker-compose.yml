@@ -6,6 +6,11 @@ services:
       context: ./xtream-container
     container_name: xtream
     ports:
-      - "25501:25500"
+      - "83:83"
+      - "3001:3001"
+      - "25500:25500"
+      - "88:88"
+      - "450:450"
+      - "25462:25462"
     volumes:
       - ./mysql:/var/lib/mysql
